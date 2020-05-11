@@ -18,7 +18,7 @@ public class PriceResource {
 
     @Inject
     @Channel("my-data-stream")
-    Publisher<Double> prices;
+    Publisher<PriceDouble> prices;
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)
@@ -29,7 +29,7 @@ public class PriceResource {
     @GET
     @Path("/stream")
     @Produces(MediaType.SERVER_SENT_EVENTS)
-    public Publisher<Double> stream() {
+    public Publisher<PriceDouble> stream() {
         return prices;
     }
 }
